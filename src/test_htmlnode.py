@@ -15,12 +15,13 @@ class TestHTMLNode(unittest.TestCase):
 
     nodeHTML = HTMLNode("html",children = node_children)
 
+#   How to test for Exceptions? Unless you don't.
 #    def test_htmlException(self):
 #       self.assertIs(self.nodeh1.to_html(), NotImplementedError())
 
     def test_props_to_html(self):
-        self.assertEqual(self.nodeLink.props_to_html(), "href=\"https://www.boot.dev\"")
-        self.assertEqual(self.nodeLink2.props_to_html(), "href=\"https://www.boot.dev\" target=\"_blank\"")
+        self.assertEqual(self.nodeLink.props_to_html(), " href=\"https://www.boot.dev\"")
+        self.assertEqual(self.nodeLink2.props_to_html(), " href=\"https://www.boot.dev\" target=\"_blank\"")
 
     def test_none(self):
         self.assertIsNone(self.nodeEmptyNode.tag)

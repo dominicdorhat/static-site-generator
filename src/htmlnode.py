@@ -12,14 +12,18 @@ class HTMLNode:
         #   2. derived classes MUST override this method
         raise NotImplementedError()
 
-   # return string representation of the HTML attributes of node
+    # return string representation of the HTML attributes of node
     def props_to_html(self):
         text = ""
-        for key, value in self.props.items():
-            text += f"{key}=\"{value}\" "
+        if not self.props:
+            return text
+        else:
+            for key, value in self.props.items():
+                text += f" {key}=\"{value}\""
 
         # remove last space
-        return text[:-1]
+        # return text[:-1]
+        return text.rstrip()
 
     def __repr__(self):
         return f"HTMLNode({self.tag}, {self.value}, {self.children}, {self.props})"
