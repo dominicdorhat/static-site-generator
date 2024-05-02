@@ -62,7 +62,6 @@ class TestHTMLNode(unittest.TestCase):
         # multiple levels deep but 1 child per level
 
         node = ParentNode("html", [ParentNode("body", [ParentNode("p", [ParentNode("b", [LeafNode("i", "Hello")])])])])
-        print(node)
 
         self.assertEqual(node.to_html(), "<html><body><p><b><i>Hello</i></b></p></body></html>")
 
